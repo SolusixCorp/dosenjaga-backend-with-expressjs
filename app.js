@@ -5,13 +5,11 @@ var cookieParser  = require('cookie-parser');
 var logger        = require('morgan');
 var multer        = require('multer');
 var upload        = multer();
-
-// var oracle        = require('oracle-db');
+var oracledb      = require('oracledb');
 
 const bodyParser  = require('body-parser');    
 
 var app           = express();
-
 
 // Import file Routing and Controllers
 var indexController   = require('./controllers/index.controller');
@@ -59,4 +57,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+module.exports = oracledb;
 module.exports = app;
