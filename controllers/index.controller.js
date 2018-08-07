@@ -4,6 +4,8 @@ var request = require('request');
 
 var oracledb    = require('oracledb');
 var db          = require('../config/database.js');
+  
+const uuid        = require('uuid/v4');
 
 var doRelease   = function(connection) {
     connection.close(function(err) {
@@ -12,7 +14,10 @@ var doRelease   = function(connection) {
 }
 
 router.get('/', function(req, res, next) {
-    res.json({'message' : 'Welcome to dosenjaga'});
+    console.log(req)
+    const uniqueId = uuid()
+    res.send(`Hit home page. Received the unique id: ${uniqueId}\n`)
+    // res.json({'message' : 'Welcome to dosenjaga apps'});
 });
 
 router.post('/login', function(req, res, next) {
@@ -52,7 +57,6 @@ router.post('/login', function(req, res, next) {
                     error : error
                 });
             } else {
-                // console.log(body);
                 setNrpNip(body, 3, status, req, res);
             }
         });
@@ -79,8 +83,9 @@ var checkLogin = function(noNrpNip, status, req, res) {
             console.log("Test:\n");
             if (result.rows.length != 0) {
                 res.json({
+                    nomor       : (status == 'dosen' ? result.rows[0][0] : result.rows[0]),
                     username    : req.body.username,
-                    name        : (status == 'dosen' ? result.rows[0]['3'] : result.rows[2]),
+                    name        : (status == 'dosen' ? result.rows[0][3] : result.rows[2]),
                     jabatan     : status,
                     image       : './images/user.png'
                 });

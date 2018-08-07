@@ -7,13 +7,17 @@ var multer        = require('multer');
 var upload        = multer();
 var oracledb      = require('oracledb');
 
-const bodyParser  = require('body-parser');    
+const bodyParser  = require('body-parser');
+const uuid        = require('uuid/v4');
+const session     = require('express-session');
 
 var app           = express();
 
 // Import file Routing and Controllers
 var indexController   = require('./controllers/index.controller');
 var userController    = require('./controllers/user.controller');
+// Dosen
+var matakuliahController  = require('./controllers/dosen/matakuliah.controller.js');
 
 
 // view engine setup
@@ -39,6 +43,8 @@ app.use(upload.array());
 // Routing and Controllers 
 app.use('/', indexController);
 app.use('/user', userController);
+// Dosen
+app.use('/matakuliah', matakuliahController);
 
 
 // catch 404 and forward to error handler
