@@ -14,7 +14,7 @@ router.post('/find', function(req, res, next) {
             return;
         }
         
-        query = "select a.*, d.hari, e.matakuliah, f.jurusan " +
+        query = "select a.*, b.nama, d.hari, e.matakuliah, f.jurusan " +
                 "from KULIAH_DOSEN_JAGA a, PEGAWAI b, KULIAH c, HARI d, MATAKULIAH e, JURUSAN f " +
                 "where a.pegawai = b.nomor and a.kuliah = c.nomor and " +
                 "a.hari = d.nomor and a.kuliah = e.nomor and e.jurusan = f.nomor and a.pegawai = :nomor";
