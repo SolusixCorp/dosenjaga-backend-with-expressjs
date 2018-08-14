@@ -6,6 +6,7 @@ var logger        = require('morgan');
 var multer        = require('multer');
 var upload        = multer();
 var oracledb      = require('oracledb');
+var cors          = require('cors');
 
 const bodyParser  = require('body-parser');
 const uuid        = require('uuid/v4');
@@ -13,11 +14,16 @@ const session     = require('express-session');
 
 var app           = express();
 
+app.use(cors());
+
 // Import file Routing and Controllers
 var indexController   = require('./controllers/index.controller');
 var userController    = require('./controllers/user.controller');
+var courseController  = require('./controllers/course.controller');
+// Tugas
+var assessmentController  = require('./controllers/dosen/assessment.controller');
 // Dosen
-var matakuliahController  = require('./controllers/dosen/matakuliah.controller.js');
+var subjectController  = require('./controllers/dosen/subject.controller.js');
 
 
 // view engine setup
@@ -43,8 +49,10 @@ app.use(upload.array());
 // Routing and Controllers 
 app.use('/', indexController);
 app.use('/user', userController);
+app.use('/course', courseController);
+app.use('/assessment', assessmentController);
 // Dosen
-app.use('/matakuliah', matakuliahController);
+app.use('/lecturer/subject', subjectController);
 
 
 // catch 404 and forward to error handler

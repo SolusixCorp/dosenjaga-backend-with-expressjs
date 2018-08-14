@@ -7,7 +7,7 @@
 6 silly lifecycle dosenjaga@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle dosenjaga@0.0.0~start: dosenjaga@0.0.0
 8 verbose lifecycle dosenjaga@0.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle dosenjaga@0.0.0~start: PATH: /usr/share/npm/bin/node-gyp-bin:/media/mygetzu/BENY/MEGA/Project/NodeJS/expressJs/dosenjaga/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+9 verbose lifecycle dosenjaga@0.0.0~start: PATH: /usr/share/npm/bin/node-gyp-bin:/media/mygetzu/BENY/MEGA/Project/NodeJS/expressJs/dosenjaga/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
 10 verbose lifecycle dosenjaga@0.0.0~start: CWD: /media/mygetzu/BENY/MEGA/Project/NodeJS/expressJs/dosenjaga
 11 silly lifecycle dosenjaga@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
 12 silly lifecycle dosenjaga@0.0.0~start: Returned: code: 1  signal: null
