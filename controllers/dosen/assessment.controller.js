@@ -71,15 +71,13 @@ router.post('/create', function(req, res, next) {
                 }
         
                 query = "insert into TUGAS (nomor, kuliah, judul, catatan, tanggal, tanggal_entri) " +
-                        "values(:nomor, :kuliah, :judul, :catatan, " + 
-                        "TO_DATE(':tanggal','yyyy/mm/dd hh24:mi:ss'), "+
-                        "TO_DATE(':tanggal_entri','yyyy/mm/dd hh24:mi:ss'))";
+                        "values(:nomor, :kuliah, ':judul', ':catatan', " + 
+                        "TO_DATE('2013/07/10 13:24:32','yyyy/mm/dd hh24:mi:ss'), "+
+                        "TO_DATE('2013/07/10 13:24:32','yyyy/mm/dd hh24:mi:ss'))";
                 
+                        // res.json(kuliah);
                 connection.execute(query,
-                    [nomor, kuliah, judul, catatan, tanggal, tanggal_entri],
-                    {
-                        outFormat: oracledb.OBJECT
-                    }, 
+                    [nomor, kuliah, judul, catatan, tanggal, tanggal_entri], 
                     function(err, result) {
                     if (err) {
                         console.error(err.message);
@@ -89,7 +87,7 @@ router.post('/create', function(req, res, next) {
                     }
                     
                     res.json({
-                        message     : 'Success saving data'
+                        message     : 'Success saving data !'
                     });
                 });
             });
