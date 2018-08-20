@@ -62,7 +62,7 @@ router.post('/create', function(req, res, next) {
                 console.error(err.message);
             }
             
-            nomor = result.rows[0][0]+1;
+            nomor = parseInt(result.rows[0][0]+1);
             
             oracledb.getConnection(db, function(err, connection) {
                 if (err) {
@@ -71,13 +71,17 @@ router.post('/create', function(req, res, next) {
                 }
         
                 query = "insert into TUGAS (nomor, kuliah, judul, catatan, tanggal, tanggal_entri) " +
-                        "values(:nomor, :kuliah, ':judul', ':catatan', " + 
-                        "TO_DATE('2013/07/10 13:24:32','yyyy/mm/dd hh24:mi:ss'), "+
-                        "TO_DATE('2013/07/10 13:24:32','yyyy/mm/dd hh24:mi:ss'))";
+                        "values(:nomor, :kuliah, 'ostea', 'ostear', " + 
+                        "TO_DATE('2018/08/28 00:00:00','yyyy/mm/dd hh24:mi:ss'), "+
+                        "TO_DATE('2018/08/28 00:00:00','yyyy/mm/dd hh24:mi:ss'))";
                 
                         // res.json(kuliah);
                 connection.execute(query,
-                    [nomor, kuliah, judul, catatan, tanggal, tanggal_entri], 
+                    [nomor, kuliah], 
+                    {
+                        outFormat: oracledb.OBJECT,
+                        autoCommit: true
+                    }, 
                     function(err, result) {
                     if (err) {
                         console.error(err.message);

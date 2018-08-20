@@ -14,7 +14,7 @@ router.get('/:no', function(req, res, next) {
             return;
         }
         
-        query = "select * from KULIAH where NOMOR = :no";
+        query = "select a.*, b.* from mahasiswa_semester a, mahasiswa b where a.kuliah = :no";
         
         connection.execute(query,
             [nomor],
